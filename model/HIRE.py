@@ -43,7 +43,7 @@ class HIREModel(nn.Module):
         clip_value = args.exp_gradient_clipping
         print(f'Clipping gradients to value {clip_value}.')
         for p in self.parameters():
-            p.register_hook(lambda grad: torch.clamp(grad, -clip_value, clip_value)) #clamp:grad 放到-1到1之间 #register_hook对p求导，并对导数进行操作
+            p.register_hook(lambda grad: torch.clamp(grad, -clip_value, clip_value)) 
 
 
     def hire(self):
